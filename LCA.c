@@ -18,6 +18,7 @@ Node *getnode(int val){
     return temp;
 }
 
+// Creates a BST given the level traversal array
 void createBST(Node **x, int *tree, int n, int index){
     if(index>=n) return;
     if(tree[index]==-1) return;
@@ -26,6 +27,7 @@ void createBST(Node **x, int *tree, int n, int index){
     createBST(&(*x)->right, tree, n, 2*index+2);
 }
 
+// Code to find the Least Common Ancestor (LCA)
 Node *lca(Node *x, Node*y, Node *root){
     if((x->val<=root->val) && (y->val>=root->val)) return root;
     if((x->val>=root->val) && (y->val<=root->val)) return root;
