@@ -3,8 +3,10 @@
 #include<string.h>
 #include "graph.c"
 
-// Shortest Path in Binary Matrix (Lab 9)
-
+// The function checks the adjacent cells of a given cell (row, col) in the grid.
+// The goal is to identify valid moves (cells with value 0) and add them to the adjacency list (AdjLst).
+// It checks the 8 (or less) possible neighbors around a given cell.
+// The valid neighbors (cells with value 0) are added to the adjacency list.
 void isclear(Node **AdjLst, int n, int *grid[100], int row, int col){
     int rowstart=row-1, rowfin=row+1, colstart=col-1, colfin=col+1;
     if(row==0) rowstart=0;
@@ -20,6 +22,10 @@ void isclear(Node **AdjLst, int n, int *grid[100], int row, int col){
     }
 }
 
+// Graph is represented as an Adjacency List where each node corresponds to a cell in the binary matrix
+// Each cell has an index corresponding to its position in a 1D array derived from the 2D matrix,
+// index = i * n + j, where i is the row and j is the column.
+// Valid neighbours are added using the isclear() function.
 void createList(Node **AdjLst, int n, int *grid[100]){
     int i, j;
     for(i=0; i<n; i++){
@@ -29,6 +35,8 @@ void createList(Node **AdjLst, int n, int *grid[100]){
     }
 }
 
+// BFS  is implemented to find the shortest possible path from the top-left (0, 0) to the bottom-right (n-1, n-1) cell.
+// If a path doesn't exist -1 is returned, else the function returns the length of the shortest path.
 int path(Node **AdjLst, int n){
     int v, i, visited[100], s=0, count=1;
     Node *temp;
