@@ -18,6 +18,7 @@ Node *getnode(int val){
     return temp;
 }
 
+// Inserts a new node at the correct position in the BST
 void insert(Node **root, Node *newnode){
     Node *temp;
     temp=*root;
@@ -43,6 +44,7 @@ void insert(Node **root, Node *newnode){
     }
 }
 
+// Creates a valid BST given the array tree
 void BST(Node **root, int *tree, int n){
     Node *x;
     int i;
@@ -52,6 +54,7 @@ void BST(Node **root, int *tree, int n){
     }
 }
 
+// Finds the kth smallest value in the BST and prints it
 void order(Node *root, int *k){
     if(root==NULL) return;
     order(root->left, k);
@@ -75,4 +78,5 @@ void main(){
     scanf("%d", &k);
     BST(&root, tree, n);
     order(root, &k);
+    free(tree);
 }
