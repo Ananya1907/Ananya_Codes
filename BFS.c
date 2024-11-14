@@ -53,7 +53,7 @@ void main(){
   for(i=0; i<n; i++) AdjLst[i]=NULL;
   AdjLst=MatToLst(AdjLst, n, A);
   Q=initQueue(n);
-	print("Enter start node: ");
+	printf("Enter start node: ");
 	scanf("%d", &s);
   bfs(AdjLst, s, n);
   Free(AdjLst, n);
