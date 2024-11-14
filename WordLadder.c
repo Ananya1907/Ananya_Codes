@@ -3,8 +3,10 @@
 #include<string.h>
 #include "graph.c"
 
-// Word Ladder (Lab 9)
-
+// Checks if two words (word1 and word2) differ by 1 or more letters
+// If it differs by exactly one letter, they are considered neighbors/adjacent (returns 1)
+// If they differ by more than 1 letter, it returns 0
+// If they are identical, it returns -1
 int isAdj(char *word1, char *word2, int l){
     int count=0;
     for(int i=0; i<l; i++){
@@ -17,6 +19,9 @@ int isAdj(char *word1, char *word2, int l){
     return 1;
 }
 
+// Checks if a word is already in wordList. If it's not, it adds the word to wordList and updates the count.
+// It is used to add the beginWord and endWord to wordList if they’re not already present.
+// It returns the index of the word in wordList.
 int wordcheck(char *word, char **wordList, int wordSize, int *wordCount){
     int i, check=0, u;
     for(i=0; i<*wordCount; i++){
@@ -33,6 +38,9 @@ int wordcheck(char *word, char **wordList, int wordSize, int *wordCount){
     return(u);
 }
 
+// This function uses Breadth-First Search (BFS) to find the shortest path from beginWord to endWord in the graph.
+// u-> start node    v-> end node
+// If no path exists between u and v, it returns 0
 int ladderLength(Node **AdjLst, int u, int v) {
     int t, i, visited[100], count=0;
     Node *temp;
@@ -71,9 +79,9 @@ void main(){
     printf("Enter endWord: ");
     scanf("%s", endWord);
     wordSize=strlen(beginWord);
-    u=wordcheck(beginWord, wordList, wordSize, &wordCount);
-    v=wordcheck(endWord, wordList, wordSize, &wordCount);
-    if(v==wordCount-1){
+    u=wordcheck(beginWord, wordList, wordSize, &wordCount);        // checks if beginword is in wordlist
+    v=wordcheck(endWord, wordList, wordSize, &wordCount);          // checks if endword is in wordlist
+    if(v==wordCount-1){                                            // if endword was not initially part of wordlist, a path will not exist (this is a constraint)
         printf("0\n");
         for(i=0; i<wordCount; i++) free(wordList[i]);
         exit(0);
@@ -82,9 +90,9 @@ void main(){
     for(i=0; i<wordCount; i++) AdjLst[i]=NULL;
     for(i=0; i<wordCount-1; i++){
         for(j=i+1; j<wordCount; j++){
-            c=isAdj(wordList[i], wordList[j], wordSize);
+            c=isAdj(wordList[i], wordList[j], wordSize);           // checks if the words are adjacent
             if(c==1){
-                AdjLst[i]=add(AdjLst[i], j);
+                AdjLst[i]=add(AdjLst[i], j);                       // if yes, then they are added to the Adjacency List
                 AdjLst[j]=add(AdjLst[j], i);
             }
         }
