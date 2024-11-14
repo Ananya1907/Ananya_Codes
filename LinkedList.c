@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+// This is a header file for other codes
+
+// ****************** Linked List ******************
 
 struct node{
     int val;
@@ -46,7 +49,7 @@ void print(Node *head){
     }
 }
 
-// Adjacency List
+// ****************** Adjacency List ******************
 
 void PrintAdjLst(Node **AdLst, int n){
   int i;
