@@ -1,7 +1,7 @@
 # C-Codes
 
 ## Overview
-	This repository contains C codes using Arrays, Linked Lists, Stacks, Queues, Graphs, and Trees. The codes show the application and implementation of Breadth-First Search (BFS) and Binary Search Trees (BST).
+	This repository contains C codes using Arrays, Linked Lists, Stacks, Queues, Graphs, and Trees. The codes show the application and implementation of Breadth-First Search (BFS), Depth-First Search (DFS), and Binary Search Trees (BST).
 
 ## Contents
 	* 'ConnectedComponents.c': Finds the number of connected components in the given graph.
@@ -12,4 +12,10 @@
 	* 'Validate_BST.c': Checks if the given BST is a valid BST.
  	* 'WordLadder.c': Creates a word ladder and finds the length of the shortest path between two given words.
 	* 'kthSmallest_inBST.c': Finds the kth smallest value in a BST.
+ 	* 'BFS.c': Performs BFS on a graph given the start node/vertex. Also checks if the given graph is connected and counts the number of edges in that connected component.
+  	* 'CommonNeighbor.c': Checks if two nodes (taken as input) have a common neighbor.
+   	* 'DFS.c': Performs DFS on a graph given the start node/vertex.
+    	* 'EulerTour.c': Checks if the given graph has an Euler Tour (assuming a connected graph).
+     	* 'Triangle.c': Checks if the given graph has a triangle. A triangle consists of 3 nodes that are mutually adjacent.
  	* 'graph.c': A header file that contains codes on the creation of Linked Lists, Adjacency Lists, Stacks, Queues, Matrices, and Graphs
+  	
