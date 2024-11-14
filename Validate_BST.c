@@ -18,6 +18,7 @@ Node *getnode(int val){
     return temp;
 }
 
+// Creates a BST given the level-travered array (tree)
 void createBST(Node **x, int *tree, int n, int index){
     if(index>=n) return;
     if(tree[index]==-1) return;
@@ -26,6 +27,9 @@ void createBST(Node **x, int *tree, int n, int index){
     createBST(&(*x)->right, tree, n, 2*index+2);
 }
 
+// Checks if the given BST is a valid BST
+// Value to the left of the node should be lower than the node value
+// Value to the right of the node should be higher than the node value
 int isvalid(Node *x){
     int flag=1;
     if(x->left!=NULL){
