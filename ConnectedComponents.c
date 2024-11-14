@@ -4,6 +4,7 @@
 
 struct Queue *Q;
 
+// BFS code for a graph stored in an Adjacency List
 int *bfs(Node **AdjLst, int n, int start, int *visited){
     Node *temp=NULL;
     int i, val;
@@ -25,6 +26,7 @@ int *bfs(Node **AdjLst, int n, int start, int *visited){
     return (visited);
 }
 
+// Code to input an Adjacency List
 Node **Inp(Node **AdjLst, int n){
     Node *newnode=NULL, *head, *top;
     int i, j, val;
@@ -55,8 +57,8 @@ void main(){
     for(i=0; i<n; i++) visited[i]=0;
     AdjLst=Inp(AdjLst, n);
     for(i=0; i<n; i++){
-        if(visited[i]==0){
-            visited=bfs(AdjLst, n, i, visited);
+        if(visited[i]==0){                        // If the node has not been visited by one iteration of bfs,
+            visited=bfs(AdjLst, n, i, visited);   // that means that it belongs to a different connected component of the graph
             count+=1;
         }
     }
