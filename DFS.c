@@ -35,11 +35,13 @@ void dfs(struct Graph G, int startNode){
 }
 
 void main(){
-  int n, A[10][10];
+  int n, A[10][10], s;
   struct Graph G;
   printf("Input no. of nodes: ");
   scanf("%d", &n);
   InpAdjLst(n, A);	
   G=initGraph(n, A);
-  dfs(G, 0);
+  printf("Enter start node: ");
+  scanf("%d", &s);
+  dfs(G, s);
 }
