@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+// This is a header file for other codes
 
-// LINKED LIST
+// ****************** Linked List ******************
 
 struct node{
     int val;
@@ -49,7 +50,7 @@ void print(Node *head){
     }
 }
 
-// Matrix
+// ****************** Matrix ******************
 
 void linTo2D(int *B, int n, int A[n][n]){
   int i, j;
@@ -71,7 +72,7 @@ void printMat(int n, int A[n][n]){
   printf("\n");
 }
 
-// Adjacency List
+// ****************** Adjacency List ******************
 
 void PrintAdjLst(Node **AdLst, int n){
   int i;
@@ -119,7 +120,8 @@ void Free(Node **AdjLst, int n){
   free(AdjLst);
 }
 
-// STACK - LIFO
+// ****************** Stacks ******************
+// LIFO - Last-in First-out
 
 Node *push(Node *head, int v){
   return add(head, v);
@@ -139,7 +141,8 @@ int pop(Node **headP){
   return a;
 }
  
-// QUEUE - FIFO
+// ****************** Queue ******************
+// FIFO - First-in First-out
 
 struct Queue{
  int* QArr;
@@ -195,7 +198,7 @@ int Dequeue(struct Queue* Q){
   return a;
 }
 
-// GRAPH
+// ****************** Graph ******************
 
 struct Graph {
  int n;                         // number of vertices
