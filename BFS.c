@@ -40,11 +40,11 @@ void bfs(Node** AdjLst, int s, int n){     // s start vertex, n number of vertic
       row=row->next;
     }
   }
-  printf("\nNumber of edges = %d", count/2);
+  printf("\nNumber of edges = %d\n", count/2);
 }
 
 void main(){
-  int n, i, A[10][10];
+  int n, i, A[10][10], s;
   Node **AdjLst;
 	printf("Input no. of nodes: ");
 	scanf("%d", &n);
@@ -53,8 +53,9 @@ void main(){
   for(i=0; i<n; i++) AdjLst[i]=NULL;
   AdjLst=MatToLst(AdjLst, n, A);
   Q=initQueue(n);
-  bfs(AdjLst, 0, n);
-  printf("\n");
+	print("Enter start node: ");
+	scanf("%d", &s);
+  bfs(AdjLst, s, n);
   Free(AdjLst, n);
   free(Q->QArr);
   free(Q);
