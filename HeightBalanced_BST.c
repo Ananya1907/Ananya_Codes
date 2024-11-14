@@ -10,6 +10,7 @@ struct node{
 
 typedef struct node Node;
 
+// Initialize a node
 Node *getnode(int val){
     Node *temp;
     temp=(Node *)malloc(sizeof(Node));
@@ -19,6 +20,7 @@ Node *getnode(int val){
     return temp;
 }
 
+// Insert the node in the correct position
 void insert(Node **root, Node *newnode){
     Node *temp;
     temp=*root;
@@ -40,6 +42,7 @@ void insert(Node **root, Node *newnode){
     }
 }
 
+// Creates a height balanced BST
 void heightbalancedBST(Node **root, int n, int *tree){
     Node *newnode;
     int i;
@@ -52,6 +55,7 @@ void heightbalancedBST(Node **root, int n, int *tree){
     }
 }
 
+// Traverses through the BST level-by-level and stores it in bst
 void levelTraversal(Node *root, int *bst, int index, int n){
     if(root==NULL){
         if(index<n){
@@ -73,11 +77,11 @@ void main(){
     tree=(int *)malloc(n*sizeof(int));
     printf("Enter array: ");
     for(i=0; i<n; i++) scanf("%d", &tree[i]);
-    if(n%2==0) midindex=n/2;
-    else midindex=(n-1)/2;
+    if(n%2==0) midindex=n/2;                        // Since input array is in ascending order,
+    else midindex=(n-1)/2;                          // midindex will be the root for a height-balanced BST
     root=getnode(tree[midindex]);
     heightbalancedBST(&root, n, tree);
-    maxlength=(pow(2, midindex+1)-1);
+    maxlength=(pow(2, midindex+1)-1);               // To find the max possible length of the height-balanced BST when doing level traversal
     bst=(int *)malloc(maxlength*sizeof(int));
     levelTraversal(root, bst, 0, maxlength);
     for(i=0; i<maxlength; i++){
